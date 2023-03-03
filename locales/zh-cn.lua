@@ -1,4 +1,3 @@
-
 Locales['zh-cn'] = {
   ['allowlist_check']     = '检查您是否得到白名单批准.',
   ['not_allowlisted']     = '您必须得到白名单批准方可加入此服务器!',
