@@ -12,36 +12,33 @@ end
 loadAllowList()
 
 AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
-	if #(GetPlayers()) < Config.MinPlayer then
+		if #(GetPlayers()) < Config.MinPlayer then
+			deferrals.done()
+			return
+		end
+		deferrals.defer()
+
+		local playerId, kickReason = source, "There Was An Error, Please Contact the server owner!"
+
+		-- Letting the user know what's going on.
+		deferrals.update(TranslateCap('allowlist_check'))
+
+		-- Needed, not sure why.
+		Wait(100)
+
+		local identifier = ESX.GetIdentifier(playerId)
+
+		if AllowList and #AllowList == 0 then
+			kickReason = ('[ESX] %s'):format(TranslateCap('allowlist_empty'))
+		elseif not identifier then
+			kickReason = ('[ESX] %s'):format(TranslateCap('license_missing'))
+		elseif not AllowList[identifier] then
+			kickReason = ('[ESX] %s'):format(TranslateCap('not_allowlist'))
+		end
+		if kickReason then goto continue end
 		deferrals.done()
-	else 
-	-- Mark this connection as deferred, this is to prevent problems while checking player identifiers.
-	deferrals.defer()
-
-	local playerId, kickReason = source, "There Was An Error, Please Contact the server owner!"
-
-	-- Letting the user know what's going on.
-	deferrals.update(TranslateCap('allowlist_check'))
-
-	-- Needed, not sure why.
-	Wait(100)
-
-	local identifier = ESX.GetIdentifier(playerId)
-
-	if ESX.Table.SizeOf(AllowList) == 0 then
-		kickReason = "[ESX] " .. TranslateCap('allowlist_empty')
-	elseif not identifier then
-		kickReason = "[ESX] " .. TranslateCap('license_missing')
-	elseif not AllowList[identifier] then
-		kickReason = "[ESX] " .. TranslateCap('not_allowlist')
-	end
-
-	if kickReason then
+		:: continue ::
 		deferrals.done(kickReason)
-	else
-		deferrals.done()
-	end
-	end
 end)
 
 ESX.RegisterCommand('alrefresh', 'admin', function(xPlayer, args)
