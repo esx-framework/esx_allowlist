@@ -12,7 +12,7 @@ end
 loadAllowList()
 
 AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
-		if #(GetPlayers()) >= Config.MinPlayer then
+		if #(GetPlayers()) < Config.MinPlayer then
 			deferrals.done()
 			return
 		end
