@@ -1,8 +1,8 @@
 Locales['si'] = {
-  ['allowlist_check'] = 'Preverja se, ali ste na seznamu dovoljenj.',
-  ['not_allowlisted'] = 'Če se želite pridružiti temu strežniku, morate biti uvrščeni na seznam dovoljenj!',
-  ['allowlist_empty'] = 'Za ta strežnik ni shranjenih belih seznamov.',
+  ['allowlist_check'] = 'Preveerjanje Seznama Dovoljenih...',
+  ['not_allowlisted'] = 'Če se želite povezati na strežnik, morate biti Dovoljeni iz strani Administracije!',
+  ['allowlist_empty'] = 'Dovoljenih ni najdenih...',
   ['license_missing'] = 'Napaka: Manjka vaš identifikator!',
-  ['help_allowlist_add'] = 'Dodaj nekoga na beli seznam',
-  ['help_allowlist_load'] = 'ponovno naložite belo listo',
+  ['help_allowlist_add'] = 'Dodaj nekoga ne seznam Dovoljenih.',
+  ['help_allowlist_load'] = 'Ponovno naložite listo!',
 }
