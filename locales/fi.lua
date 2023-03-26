@@ -1,4 +1,3 @@
-
 Locales['fi'] = {
   ['allowlist_check']     = 'Tarkistetaan onko sinulla oleskelulupaa.',
   ['not_allowlisted']     = 'Sinun on oltava oleskelulupa, jotta voit liittyä palvelimelle!', 
