@@ -5,4 +5,10 @@ Locales['fi'] = {
   ['license_missing']     = 'Virhe: Tunistettasi ei löydetä!',
   ['help_allowlist_add']  = 'Lisää jollekulle oleskelulupa',
   ['help_allowlist_load'] = 'Lataa oleskelulupa uudelleen',
+  ['help_allowlist_remove'] = 'remove someone from the allowlist', --not translated
+  ['error'] = 'There Was An Error, Please Contact the server owner!', --not translated
+  ['already_allowlisted'] = 'The player is already allowlisted on this server!', --not translated
+  ['license'] = 'license', --not translated
+  ['help_license'] = 'the player license', --not translated
+  ['identifier_not_allowlisted'] = 'Identifier is not Allowlisted on this server!', --not translated
 }
