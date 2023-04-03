@@ -18,7 +18,7 @@ AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
 	-- Mark this connection as deferred, this is to prevent problems while checking player identifiers.
 	deferrals.defer()
 
-	local playerId, kickReason = source, "There Was An Error, Please Contact the server owner!"
+	local playerId, kickReason = source, TranslateCap('error')
 
 	-- Letting the user know what's going on.
 	deferrals.update(TranslateCap('allowlist_check'))
@@ -53,14 +53,14 @@ ESX.RegisterCommand('aladd', 'admin', function(xPlayer, args, showError)
 	args.license = args.license:lower()
 
 	if AllowList[args.license] then
-			showError('The player is already allowlisted on this server!')
+			showError(TranslateCap('already_allowlisted'))
 	else
 		AllowList[args.license] = true
 		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(AllowList))
 		loadAllowList()
 	end
 end, true, {help = TranslateCap('help_allowlist_add'), validate = true, arguments = {
-	{name = 'license', help = 'the player license', type = 'string'}
+	{name = TranslateCap('license'), help = TranslateCap('help_license'), type = 'string'}
 }})
 
 ESX.RegisterCommand('alremove', 'admin', function(xPlayer, args, showError)
@@ -71,8 +71,8 @@ ESX.RegisterCommand('alremove', 'admin', function(xPlayer, args, showError)
 		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(AllowList))
 		loadAllowList()
 	else
-		showError('Identifier is not Allowlisted on this server!')
+		showError(TranslateCap('identifier_not_allowlisted'))
 	end
-end, true, {help = TranslateCap('help_allowlist_add'), validate = true, arguments = {
-	{name = 'license', help = 'the player license', type = 'string'}
+end, true, {help = TranslateCap('help_allowlist_remove'), validate = true, arguments = {
+	{name = TranslateCap('license'), help = TranslateCap('help_license'), type = 'string'}
 }})
