@@ -1,15 +1,13 @@
 local AllowList = {}
 
-function loadAllowList()
-	AllowList = nil
+local function loadAllowList()
+	AllowList = {}
 
 	local List = LoadResourceFile(GetCurrentResourceName(),'players.json')
 	if List then
 		AllowList = json.decode(List)
 	end
-end
-
-loadAllowList()
+end loadAllowList()
 
 AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
 	if #(GetPlayers()) < Config.MinPlayer then
@@ -52,13 +50,14 @@ end, true, {help = TranslateCap('help_allowlist_load')})
 ESX.RegisterCommand('aladd', 'admin', function(xPlayer, args, showError)
 	args.license = args.license:lower()
 
-	if AllowList[args.license] then
-			showError(TranslateCap('already_allowlisted'))
-	else
+	if not AllowList[args.license] then
 		AllowList[args.license] = true
 		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(AllowList))
 		loadAllowList()
+		return
 	end
+
+	showError(TranslateCap('already_allowlisted'))
 end, true, {help = TranslateCap('help_allowlist_add'), validate = true, arguments = {
 	{name = TranslateCap('license'), help = TranslateCap('help_license'), type = 'string'}
 }})
@@ -66,13 +65,14 @@ end, true, {help = TranslateCap('help_allowlist_add'), validate = true, argument
 ESX.RegisterCommand('alremove', 'admin', function(xPlayer, args, showError)
 	args.license = args.license:lower()
 
-	if AllowList[args.license] then
-		AllowList[args.license] = nil
-		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(AllowList))
-		loadAllowList()
-	else
+	if not AllowList[args.license] then
 		showError(TranslateCap('identifier_not_allowlisted'))
+		return
 	end
+
+	AllowList[args.license] = nil
+	SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(AllowList))
+	loadAllowList()
 end, true, {help = TranslateCap('help_allowlist_remove'), validate = true, arguments = {
 	{name = TranslateCap('license'), help = TranslateCap('help_license'), type = 'string'}
 }})
