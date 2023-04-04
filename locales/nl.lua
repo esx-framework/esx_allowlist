@@ -5,10 +5,10 @@ Locales['nl'] = {
   ['license_missing']     = 'Error: Je Identifier mist!',
   ['help_allowlist_add']  = 'geef iemand een toegangspas',
   ['help_allowlist_load'] = 'herlaad de toegangspassen',
-  ['help_allowlist_remove'] = 'remove someone from the allowlist', --not translated
-  ['error'] = 'There Was An Error, Please Contact the server owner!', --not translated
-  ['already_allowlisted'] = 'The player is already allowlisted on this server!', --not translated
-  ['license'] = 'license', --not translated
-  ['help_license'] = 'the player license', --not translated
-  ['identifier_not_allowlisted'] = 'Identifier is not Allowlisted on this server!', --not translated
+  ['help_allowlist_remove'] = 'verwijder iemand zijn toegangspas',
+  ['error'] = 'Er is een fout opgetreden, contacteer de server eigenaar !',
+  ['already_allowlisted'] = 'De speler heeft al een toegangspas op deze server!',
+  ['license'] = 'licentie',
+  ['help_license'] = 'de speler zijn licentie',
+  ['identifier_not_allowlisted'] = 'Deze identifier heeft geen toegangspas op deze server!',
 }
