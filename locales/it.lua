@@ -5,10 +5,10 @@ Locales['it'] = {
   ['license_missing']     = 'Errore: il tuo identificatore è mancante!',
   ['help_allowlist_add']  = 'aggiungi qualcuno alla allowlist',
   ['help_allowlist_load'] = 'ricarica la allowlist',
-  ['help_allowlist_remove'] = 'remove someone from the allowlist', --not translated
-  ['error'] = 'There Was An Error, Please Contact the server owner!', --not translated
-  ['already_allowlisted'] = 'The player is already allowlisted on this server!', --not translated
-  ['license'] = 'license', --not translated
-  ['help_license'] = 'the player license', --not translated
-  ['identifier_not_allowlisted'] = 'Identifier is not Allowlisted on this server!', --not translated
+  ['help_allowlist_remove'] = 'rimuovi un utente dalla allowlist', 
+  ['error'] = 'É stato riscontrato un errore, contatta il proprietario del server!', 
+  ['already_allowlisted'] = 'Il giocatore è già allowlistato nel server', 
+  ['license'] = 'licenza', 
+  ['help_license'] = 'la licenza del giocatore', 
+  ['identifier_not_allowlisted'] = 'L\' identificativo non è allowlistato nel server', 
 }
