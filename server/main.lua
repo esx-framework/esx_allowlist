@@ -17,11 +17,12 @@ AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
     
     deferrals.defer()
 
-    local playerId, kickReason = source, nil
+	  local playerId, kickReason = source, TranslateCap('error')
 
     deferrals.update(TranslateCap('allowlist_check'))
 
-    Wait(0)
+    --Not for nothing was this 100 but even this is not the best solution.
+    Wait(100)
 
     local identifier = ESX.GetIdentifier(playerId)
 
@@ -44,29 +45,29 @@ ESX.RegisterCommand('alrefresh', 'admin', function(xPlayer, args)
 end, true, {help = TranslateCap('help_allowlist_load')})
 
 ESX.RegisterCommand('aladd', 'admin', function(xPlayer, args, showError)
-	args.license = args.license:lower()
-
-	if allowList[args.license] then
+	local playerLicense = args.license:lower()
+    
+	if allowList[playerLicense] then
 		showError('The player is already allowlisted on this server!')
 	else
-		allowList[args.license] = true
+		allowList[playerLicense] = true
 		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(allowList))
 		loadAllowList()
 	end
 end, true, {help = TranslateCap('help_allowlist_add'), validate = true, arguments = {
-	{name = 'license', help = 'the player license', type = 'string'}
+	{name = TranslateCap('license'), help = TranslateCap('help_license'), type = 'string'}
 }})
 
 ESX.RegisterCommand('alremove', 'admin', function(xPlayer, args, showError)
-	args.license = args.license:lower()
+	local playerLicense = args.license:lower()
 
-	if allowList[args.license] then
-		allowList[args.license] = nil
+	if allowList[playerLicense] then
+		allowList[playerLicense] = nil
 		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(allowList))
 		loadAllowList()
 	else
-		showError('Identifier is not Allowlisted on this server!')
+		showError(TranslateCap('identifier_not_allowlisted'))
 	end
-end, true, {help = TranslateCap('help_allowlist_add'), validate = true, arguments = {
-	{name = 'license', help = 'the player license', type = 'string'}
+end, true, {help = TranslateCap('help_allowlist_remove'), validate = true, arguments = {
+	{name = TranslateCap('license'), help = TranslateCap('help_license'), type = 'string'}
 }})

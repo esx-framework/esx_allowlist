@@ -1,10 +1,10 @@
-Locales['zh-cn'] = {
-  ['allowlist_check']     = '检查您是否得到白名单批准.',
-  ['not_allowlisted']     = '您必须得到白名单批准方可加入此服务器!',
-  ['allowlist_empty']     = '该服务器没有开启白名单.',
-  ['license_missing']     = '错误：您的标识符丢失或未找到了!',
-  ['help_allowlist_add']  = '将某人添加到白名单中',
-  ['help_allowlist_load'] = '重新加载白名单',
+Locales['fi'] = {
+  ['allowlist_check']     = 'Tarkistetaan onko sinulla oleskelulupaa.',
+  ['not_allowlisted']     = 'Sinulla on oltava oleskelulupa, jotta voit liittyä palvelimelle!', 
+  ['allowlist_empty']     = 'Tälle palvelimelle ei ole tallennettuja oleskelulupia.', 
+  ['license_missing']     = 'Virhe: Tunistettasi ei löydetä!',
+  ['help_allowlist_add']  = 'Lisää jollekulle oleskelulupa',
+  ['help_allowlist_load'] = 'Lataa oleskelulupa uudelleen',
   ['help_allowlist_remove'] = 'remove someone from the allowlist', --not translated
   ['error'] = 'There Was An Error, Please Contact the server owner!', --not translated
   ['already_allowlisted'] = 'The player is already allowlisted on this server!', --not translated

@@ -1,10 +1,10 @@
-Locales['zh-cn'] = {
-  ['allowlist_check']     = '检查您是否得到白名单批准.',
-  ['not_allowlisted']     = '您必须得到白名单批准方可加入此服务器!',
-  ['allowlist_empty']     = '该服务器没有开启白名单.',
-  ['license_missing']     = '错误：您的标识符丢失或未找到了!',
-  ['help_allowlist_add']  = '将某人添加到白名单中',
-  ['help_allowlist_load'] = '重新加载白名单',
+Locales['sl'] = {
+  ['allowlist_check'] = 'Preveerjanje Seznama Dovoljenih...',
+  ['not_allowlisted'] = 'Če se želite povezati na strežnik, morate biti Dovoljeni iz strani Administracije!',
+  ['allowlist_empty'] = 'Dovoljenih ni najdenih...',
+  ['license_missing'] = 'Napaka: Manjka vaš identifikator!',
+  ['help_allowlist_add'] = 'Dodaj nekoga ne seznam Dovoljenih.',
+  ['help_allowlist_load'] = 'Ponovno naložite listo!',
   ['help_allowlist_remove'] = 'remove someone from the allowlist', --not translated
   ['error'] = 'There Was An Error, Please Contact the server owner!', --not translated
   ['already_allowlisted'] = 'The player is already allowlisted on this server!', --not translated
