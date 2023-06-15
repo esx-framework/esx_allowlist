@@ -5,10 +5,10 @@ Locales['fr'] = {
   ['license_missing']     = 'Votre license est introuvable',
   ['help_allowlist_add']  = 'Ajouter un joueur à la Whitelist',
   ['help_allowlist_load'] = 'Recharger la Whitelist',
-  ['help_allowlist_remove'] = 'Retirer une personne de la allowlist',
-  ['error'] = 'Une erreur est survenue, veuillez contacter le propriétaire du serveur!',
-  ['already_allowlisted'] = 'Ce joueur est déjà allowlisté sur le serveur!,
+  ['help_allowlist_remove'] = 'retirer quelqu\'un de la liste blanche',
+  ['error'] = 'Une erreur est survenue, veuillez contacter le propriétaire du serveur !',
+  ['already_allowlisted'] = 'Le joueur est déjà sur la liste blanche de ce serveur !',
   ['license'] = 'licence',
   ['help_license'] = 'la licence du joueur',
-  ['identifier_not_allowlisted'] = 'L\'identifiant n\'est pas allowlisté sur ce serveur!',
+  ['identifier_not_allowlisted'] = 'L\'identifiant n\'est pas sur la liste blanche de ce serveur !'
 }
