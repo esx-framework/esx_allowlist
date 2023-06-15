@@ -1,5 +1,5 @@
 Locales['fr'] = {
-  ['allowlist_check']     = 'Etes vous sûr d\'être allowlisté sur ce serveur ...',
+  ['allowlist_check']     = 'Êtes vous sûr d\'être allowlisté sur ce serveur ...',
   ['not_allowlisted']     = 'Ce serveur utilise une allowlist',
   ['allowlist_empty']     = 'La allowlist n\'a pas été rechargé ou vous n\'avez pas été allowlisté',
   ['license_missing']     = 'Votre license est introuvable',
@@ -10,5 +10,5 @@ Locales['fr'] = {
   ['already_allowlisted'] = 'Le joueur est déjà sur la liste blanche de ce serveur !',
   ['license'] = 'licence',
   ['help_license'] = 'la licence du joueur',
-  ['identifier_not_allowlisted'] = 'L\'identifiant n\'est pas sur la liste blanche de ce serveur !',
+  ['identifier_not_allowlisted'] = 'L\'identifiant n\'est pas sur la liste blanche de ce serveur !'
 }
