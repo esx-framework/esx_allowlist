@@ -5,4 +5,10 @@ Locales['en'] = {
   ['license_missing']     = 'Error: Your Identifier is missing!',
   ['help_allowlist_add']  = 'add someone to the allowlist',
   ['help_allowlist_load'] = 'reload the allowlist',
+  ['help_allowlist_remove'] = 'remove someone from the allowlist',
+  ['error'] = 'There Was An Error, Please Contact the server owner!', 
+  ['already_allowlisted'] = 'The player is already allowlisted on this server!',
+  ['license'] = 'license',
+  ['help_license'] = 'the player license',
+  ['identifier_not_allowlisted'] = 'Identifier is not Allowlisted on this server!',
 }
