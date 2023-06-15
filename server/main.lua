@@ -1,47 +1,42 @@
-local AllowList = {}
+local allowList = {}
 
-function loadAllowList()
-	AllowList = nil
+local function loadAllowList()
+	allowList = {}
 
-	local List = LoadResourceFile(GetCurrentResourceName(),'players.json')
-	if List then
-		AllowList = json.decode(List)
+	local list = LoadResourceFile(GetCurrentResourceName(),'players.json')
+	if list then
+		allowList = json.decode(list)
 	end
 end
 
-loadAllowList()
+CreateThread(loadAllowList)
 
 AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
-	if #(GetPlayers()) < Config.MinPlayer then
-		deferrals.done()
-	else 
-	-- Mark this connection as deferred, this is to prevent problems while checking player identifiers.
-	deferrals.defer()
+    local players = GetPlayers()
+    if #players < Config.MinPlayer then return end
+    
+    deferrals.defer()
 
-	local playerId, kickReason = source, TranslateCap('error')
+	  local playerId, kickReason = source, TranslateCap('error')
 
-	-- Letting the user know what's going on.
-	deferrals.update(TranslateCap('allowlist_check'))
+    deferrals.update(TranslateCap('allowlist_check'))
 
-	-- Needed, not sure why.
-	Wait(100)
+    --Not for nothing was this 100 but even this is not the best solution.
+    Wait(100)
 
-	local identifier = ESX.GetIdentifier(playerId)
+    local identifier = ESX.GetIdentifier(playerId)
 
-	if ESX.Table.SizeOf(AllowList) == 0 then
-		kickReason = "[ESX] " .. TranslateCap('allowlist_empty')
-	elseif not identifier then
-		kickReason = "[ESX] " .. TranslateCap('license_missing')
-	elseif not AllowList[identifier] then
-		kickReason = "[ESX] " .. TranslateCap('not_allowlist')
-	end
+    if ESX.Table.SizeOf(allowList) == 0 then
+        kickReason = "[ESX] " .. TranslateCap('allowlist_empty')
+    elseif not identifier then
+        kickReason = "[ESX] " .. TranslateCap('license_missing')
+    elseif not allowList[identifier] then
+        kickReason = "[ESX] " .. TranslateCap('not_allowlist')
+    end
 
-	if kickReason then
-		deferrals.done(kickReason)
-	else
-		deferrals.done()
-	end
-	end
+    if kickReason then return deferrals.done(kickReason) end
+
+    deferrals.done()
 end)
 
 ESX.RegisterCommand('alrefresh', 'admin', function(xPlayer, args)
@@ -50,13 +45,13 @@ ESX.RegisterCommand('alrefresh', 'admin', function(xPlayer, args)
 end, true, {help = TranslateCap('help_allowlist_load')})
 
 ESX.RegisterCommand('aladd', 'admin', function(xPlayer, args, showError)
-	args.license = args.license:lower()
-
-	if AllowList[args.license] then
-			showError(TranslateCap('already_allowlisted'))
+	local playerLicense = args.license:lower()
+    
+	if allowList[playerLicense] then
+		showError('The player is already allowlisted on this server!')
 	else
-		AllowList[args.license] = true
-		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(AllowList))
+		allowList[playerLicense] = true
+		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(allowList))
 		loadAllowList()
 	end
 end, true, {help = TranslateCap('help_allowlist_add'), validate = true, arguments = {
@@ -64,11 +59,11 @@ end, true, {help = TranslateCap('help_allowlist_add'), validate = true, argument
 }})
 
 ESX.RegisterCommand('alremove', 'admin', function(xPlayer, args, showError)
-	args.license = args.license:lower()
+	local playerLicense = args.license:lower()
 
-	if AllowList[args.license] then
-		AllowList[args.license] = nil
-		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(AllowList))
+	if allowList[playerLicense] then
+		allowList[playerLicense] = nil
+		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(allowList))
 		loadAllowList()
 	else
 		showError(TranslateCap('identifier_not_allowlisted'))
