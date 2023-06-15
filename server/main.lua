@@ -7,6 +7,7 @@ local function loadAllowList()
 	if list then
 		allowList = json.decode(list)
 	end
+  
 end
 
 CreateThread(loadAllowList)
@@ -53,6 +54,7 @@ ESX.RegisterCommand('aladd', 'admin', function(xPlayer, args, showError)
 		allowList[playerLicense] = true
 		SaveResourceFile(GetCurrentResourceName(), 'players.json', json.encode(allowList))
 		loadAllowList()
+		return
 	end
 end, true, {help = TranslateCap('help_allowlist_add'), validate = true, arguments = {
 	{name = TranslateCap('license'), help = TranslateCap('help_license'), type = 'string'}
@@ -67,6 +69,7 @@ ESX.RegisterCommand('alremove', 'admin', function(xPlayer, args, showError)
 		loadAllowList()
 	else
 		showError(TranslateCap('identifier_not_allowlisted'))
+		return
 	end
 end, true, {help = TranslateCap('help_allowlist_remove'), validate = true, arguments = {
 	{name = TranslateCap('license'), help = TranslateCap('help_license'), type = 'string'}
