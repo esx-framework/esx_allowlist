@@ -3,7 +3,7 @@ fx_version 'adamant'
 game 'gta5'
 
 author 'ESX-Framework'
-description 'Offical AllowList script for ESX'
+description 'An Allow-list system for ESX that lets you only allow specific people join your server.'
 
 version '1.1' 
 legacyversion '1.9.1'
